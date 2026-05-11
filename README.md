@@ -4,6 +4,7 @@
 ![Badge Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange?logo=jupyter&logoColor=white)
 ![Badge License](https://img.shields.io/badge/license-MIT-green)
 ![Badge Status](https://img.shields.io/badge/status-Active-brightgreen)
+![Badge Poetry](https://img.shields.io/badge/Poetry-1.4+-blue?logo=poetry&logoColor=white)
 
 Un proyecto de **Machine Learning** para monitoreo, análisis y predicción de patrones de tráfico vehicular utilizando técnicas avanzadas de ciencia de datos.
 
@@ -47,6 +48,7 @@ Este proyecto implementa un **sistema de análisis y predicción de tráfico veh
 - ✅ **Visualizaciones Profesionales**: Gráficos interactivos y análisis visual
 - ✅ **Documentación Completa**: Notebooks bien comentados y estructurados
 - ✅ **Reproducibilidad**: Pipeline reproducible y parametrizable
+- ✅ **Gestión de Dependencias con Poetry**: Entorno aislado y reproducible
 
 ---
 
@@ -54,50 +56,69 @@ Este proyecto implementa un **sistema de análisis y predicción de tráfico veh
 
 Asegúrate de tener instalado:
 - **Python 3.8+**
-- **pip** o **conda**
-- **Jupyter Notebook** (opcional, para ejecutar interactivamente)
+- **Poetry 1.4+** - [Instalar Poetry](https://python-poetry.org/docs/#installation)
+- **Git** (para clonar el repositorio)
+
+### Instalar Poetry
+
+```bash
+# En macOS/Linux
+curl -sSL https://install.python-poetry.org | python3 -
+
+# En Windows (PowerShell)
+(Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | python -
+
+# O usar pip
+pip install poetry
+```
 
 ---
 
 ## 📦 Instalación
 
-### Opción 1: Con pip
+### Con Poetry (Recomendado) ⭐
 
 ```bash
 # Clonar el repositorio
 git clone https://github.com/ianu717/traffic_monitoring_ml.git
 cd traffic_monitoring_ml
 
-# Crear un entorno virtual (recomendado)
-python -m venv venv
-source venv/bin/activate  # En Windows: venv\Scripts\activate
+# Instalar dependencias y crear entorno virtual
+poetry install
 
-# Instalar dependencias
-pip install -r requirements.txt
+# Activar el entorno virtual
+poetry shell
 ```
 
-### Opción 2: Con Conda
+### Ejecutar comandos sin activar el entorno
 
 ```bash
-# Clonar el repositorio
-git clone https://github.com/ianu717/traffic_monitoring_ml.git
-cd traffic_monitoring_ml
+# Ejecutar Jupyter dentro del entorno de Poetry
+poetry run jupyter notebook
 
-# Crear ambiente
-conda create -n traffic_ml python=3.9
-conda activate traffic_ml
-
-# Instalar dependencias
-pip install -r requirements.txt
+# Ejecutar un script Python
+poetry run python script.py
 ```
 
-### Opción 3: Ejecutar en Jupyter directamente
+### Agregar nuevas dependencias
 
 ```bash
-jupyter notebook
+# Añadir una librería de producción
+poetry add numpy pandas
+
+# Añadir una librería de desarrollo
+poetry add --group dev pytest black flake8
 ```
 
-Luego abre los notebooks en la interfaz de Jupyter.
+### Actualizar dependencias
+
+```bash
+# Actualizar todas las dependencias
+poetry update
+
+# Actualizar una dependencia específica
+poetry update numpy
+```
 
 ---
 
@@ -128,7 +149,9 @@ traffic_monitoring_ml/
 │
 ├── 📄 README.md               # Este archivo
 │
-├── 📋 requirements.txt         # Dependencias del proyecto
+├── 📋 pyproject.toml          # Configuración de Poetry y dependencias
+│
+├── 📝 poetry.lock             # Lock file con versiones exactas
 │
 └── 📝 NOTES.md               # Notas técnicas adicionales (opcional)
 ```
@@ -145,13 +168,14 @@ traffic_monitoring_ml/
    cd traffic_monitoring_ml
    ```
 
-2. **Instala las dependencias:**
+2. **Instala las dependencias con Poetry:**
    ```bash
-   pip install -r requirements.txt
+   poetry install
    ```
 
-3. **Abre Jupyter y ejecuta los notebooks en orden:**
+3. **Activa el entorno y abre Jupyter:**
    ```bash
+   poetry shell
    jupyter notebook
    ```
 
@@ -162,6 +186,17 @@ traffic_monitoring_ml/
    - `04_predictions_and_insights.ipynb`
 
 ### Ejecución en Script Python
+
+```bash
+# Dentro del entorno de Poetry
+poetry run python script.py
+
+# O después de activar el entorno
+poetry shell
+python script.py
+```
+
+Ejemplo de script:
 
 ```python
 # Ejemplo básico de uso
@@ -203,7 +238,7 @@ df = pd.read_csv('data/raw/traffic_data.csv')
 └────────┬────────┘
          │
 ┌────────▼────────┐
-│  Predicciones   │  🎯 Resultados y Insights
+│  Predicciones   │  🎯 Resultados e Insights
 └─────────────────┘
 ```
 
@@ -242,7 +277,7 @@ df = pd.read_csv('data/raw/traffic_data.csv')
 
 ## 🛠️ Tecnologías
 
-### Librerías Principales
+### Librerías Principales (ver `pyproject.toml` para versiones)
 
 ```
 pandas            # Manipulación de datos
@@ -263,7 +298,7 @@ plotly            # Visualización interactiva
 statsmodels       # Análisis estadístico
 ```
 
-Ver `requirements.txt` para la lista completa de dependencias.
+Ver `pyproject.toml` para la lista completa de dependencias con sus versiones exactas.
 
 ---
 
@@ -273,14 +308,16 @@ Las contribuciones son bienvenidas. Para cambios significativos:
 
 1. Fork el repositorio
 2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
+3. Instala las dependencias: `poetry install`
+4. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+5. Push a la rama (`git push origin feature/AmazingFeature`)
+6. Abre un Pull Request
 
 ---
 
 ## 📚 Referencias y Recursos
 
+- [Documentación Poetry](https://python-poetry.org/docs/)
 - [Documentación Scikit-learn](https://scikit-learn.org/)
 - [Pandas Documentation](https://pandas.pydata.org/)
 - [Machine Learning Best Practices](https://developers.google.com/machine-learning/guides)
