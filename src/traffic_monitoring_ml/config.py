@@ -9,6 +9,7 @@ DATA_PROCESSED_DIR = DATA_DIR / 'processed'
 DATA_MAP_DIR = DATA_DIR / 'map'
 NOTEBOOKS_DIR = BASE_DIR / 'notebooks'
 MODELS_DIR = BASE_DIR / 'model'
+MODEL_METRICS_DIR = MODELS_DIR / 'metrics'
 
 #DATA SOURCE URLS
 COLLISION_CSV_URL = 'https://data.dft.gov.uk/road-accidents-safety-data/dft-road-casualty-statistics-collision-last-5-years.csv'
@@ -32,3 +33,6 @@ SELECTED_FEATURES_PATH = DATA_PROCESSED_DIR / 'selected_features.json'
 
 #MODEL PATHS
 CATBOOST_MODEL_PATH = MODELS_DIR / 'severity_classifier.cbm'
+
+#METRICS FILE PATHS
+BEST_PARAMETERS_PATH = MODEL_METRICS_DIR / 'best_parameters.pkl'
