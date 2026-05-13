@@ -1,9 +1,9 @@
 [project]
 name = "traffic_monitoring_ml"
 version = "0.1.0"
-description = "Descripcion"
+description = "Sistema de prediccion de severidad de accidentes de tráfico"
 authors = [
-    {name = "Unai Riaño",email = "unai717@hotmail.com"}
+    {name = "Unai Riaño"}
 ]
 readme = "README.md"
 requires-python = ">=3.11,<=3.13"
