@@ -41,7 +41,7 @@ st.set_page_config(
 )
 
 #MAIN CONTENT
-st.title('Análisis Predictivo de Severidad en Accidentes de Tráfico')
+st.title('Monitorización de seguridad vial')
 
 st.markdown('''
 Este sistema permanece a la escucha de eventos de accidente de tráfico. 
